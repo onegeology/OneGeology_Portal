@@ -11,10 +11,6 @@ $Id: ProxyRedirect.java,v 1.1 2009/09/16 14:53:31 mauclerc Exp $
 package fr.brgm.mapClient.proxy;
 
 import fr.brgm.mapClient.config.properties.ApplicationProperties;
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
