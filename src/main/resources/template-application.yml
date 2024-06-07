@@ -1,3 +1,4 @@
+#parameters for development only
 spring:
   profiles:
     active: dev
@@ -7,11 +8,16 @@ spring:
     # Enabling H2 Console
     console:
       enabled: true
+      settings:
+        web-allow-others: true
   datasource:
     url: jdbc:h2:mem:onegeology_servicedb
     driverClassName: org.h2.Driver
     username: changeit
     password: changeit
+  jmx:
+    default-domain: fr.brgm.default
+    unique-names: true
   jpa:
     show-sql: true
     hibernate:
@@ -26,12 +32,12 @@ spring:
 application:
   cesium-exception-url: http://egdi.geology.cz
   zabbix:
-    proxy: http://yourproxy/
-    url: http://zabbixserver/zabbix/api_jsonrpc.php
-    user: changeit
-    password: changeit
-    service-cluster: Onegeology services
-    scenario-delay: 30m
+    proxy: ${proxy_url}
+    url: ${zabbix_url}
+    user: ${zabbix_username}
+    password: ${zabbix_password}
+    service-cluster: ${zabbix_service-cluster}
+    scenario-delay: 240m
     scheduler:
       second: 0
       minute: 15
@@ -41,12 +47,12 @@ application:
       day-of-week: '*'
       day-interval: 30
   ogc-tools:
-    url: http://url
+    url: http://localhost:8083
     get-wfs-url: ${application.ogc-tools.url}/api/wfs/
     get-sld-url: ${application.ogc-tools.url}/api/sld/
   vocabularies:
     - name: litho
-      url: http://srvgeosciml.brgm.fr/eXist2010/rest//db/SKOS/CGI201202/SimpleLithology201202.rdf
+      url: http://srvgeosciml.brgm.fr/eXist2010/rest/db/SKOS/CGI201202/SimpleLithology201202.rdf
       mapping-url: http://onegeology.brgm.fr/eXist2010/rest/db/SKOS/1GG/CGI-to-INSPIRE-LithologyMappingsSkos.xml
       is-default: true
     - name: ages
@@ -54,50 +60,6 @@ application:
       mapping-url: http://onegeology.brgm.fr/eXist2010/rest/db/SKOS/1GG/CGI-to-INSPIRE-AgeMappingsSkos.xml
     - name: ga_mineral-occurrence-type_v0-1
     - name: ga_commodity-code_v0-2
-
-logging.level:
-  org.springframework.web: DEBUG
-  fr.brgm: DEBUG
-
----
-#parameters for development only
-spring:
-  profiles: dev
-  h2:
-    # To See H2 Console in Browser:
-    # http://localhost:8080/mapClient/h2-console
-    # Enabling H2 Console
-    console:
-      enabled: true
-  datasource:
-    url: jdbc:h2:mem:onegeology_servicedb
-    driverClassName: org.h2.Driver
-    username: changeit
-    password: changeit
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-
-application:
-  zabbix:
-    proxy: http://yourproxy/
-    url: http://zabbixserver/zabbix/api_jsonrpc.php
-    user: changeit
-    password: changeit
-    service-cluster: Onegeology services
-    scenario-delay: 240m
-    scheduler:
-      second: 0
-      minute: 37
-      hour: 13
-      day-of-month: '?'
-      month: '*'
-      day-of-week: '*'
-      day-interval: 30
 
 wms-validation:
   child-layer-keywords:
@@ -126,6 +88,7 @@ wms-validation:
           - geoscientificinformation
 
 logging.level:
-  org.springframework.web: ERROR
+  org.springframework.web: DEBUG
   fr.brgm: DEBUG
 ---
+
