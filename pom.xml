@@ -131,7 +131,7 @@
         <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-wms</artifactId>
-            <version>24.0</version>
+            <version>26.7</version>
         </dependency>
     </dependencies>
 
