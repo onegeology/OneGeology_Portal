@@ -20,48 +20,7 @@
             <id>OSGEO GeoTools repo</id>
             <url>https://repo.osgeo.org/repository/release/</url>
         </repository>
-        <repository>
-            <id>Hibernate Spatial repo</id>
-            <url>http://www.hibernatespatial.org/repository</url>
-        </repository>
-        <repository>
-            <id>52 North repo for postgis</id>
-            <url>http://52north.org/maven/repo/releases</url>
-        </repository>
     </repositories>
-
-    <!--Useful for tomcat-maven-plugin-->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>OSGEO GeoTools repo</id>
-            <url>https://repo.osgeo.org/repository/release/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>project.local</id>
-            <name>project</name>
-            <url>file:${project.basedir}/repo</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>52 North repo for postgis</id>
-            <url>http://52north.org/maven/repo/releases</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>Hibernate Spatial repo</id>
-            <url>http://www.hibernatespatial.org/repository</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>sonatype-oss-snapshots</id>
-            <name>Sonatype OSS Snapshots Repo</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
