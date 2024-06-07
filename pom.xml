@@ -26,7 +26,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <springfox.version>3.0.0</springfox.version>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-        <dependency.mapstruct.version>1.3.1.Final</dependency.mapstruct.version>
+        <dependency.mapstruct.version>1.5.5.Final</dependency.mapstruct.version>
     </properties>
 
     <dependencies>
