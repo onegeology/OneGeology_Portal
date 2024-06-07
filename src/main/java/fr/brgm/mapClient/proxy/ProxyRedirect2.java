@@ -33,7 +33,7 @@ public class ProxyRedirect2 extends HttpServlet {
     /**
      * Log
      */
-    private final static Log log = LogFactory.getLog(ProxyRedirect.class);
+    private final static Log log = LogFactory.getLog(ProxyRedirect2.class);
 
     /**
      * Current servlet context
@@ -67,7 +67,9 @@ public class ProxyRedirect2 extends HttpServlet {
 
     protected void doForward(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = getParameter("url", req.getQueryString());
+	log.debug("Received url: " + url);
         url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
+	log.debug("Decoded url: " + url);
         if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
             url = URLDecoder.decode(url, "UTF-8");
             log.debug("Forwarding get: " + url);
