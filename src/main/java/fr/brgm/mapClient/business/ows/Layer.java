@@ -1,6 +1,6 @@
 package fr.brgm.mapClient.business.ows;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;

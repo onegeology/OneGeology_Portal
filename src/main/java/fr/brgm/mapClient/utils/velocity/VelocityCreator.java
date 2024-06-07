@@ -13,8 +13,6 @@ import java.util.Properties;
  */
 public class VelocityCreator {
 
-    public static String CATEGORY_NAME = "org.apache.velocity.runtime.log.SimpleLog4JLogSystem";
-
     /**
      * Creates XML with Velocity.
      *
@@ -28,13 +26,19 @@ public class VelocityCreator {
         VelocityEngine ve = new VelocityEngine();
         try {
             Properties p = new Properties();
-            p.setProperty("resource.loader", "class");
-            p.setProperty("class.resource.loader.description", "Resource Loader");
-            p.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader ");
-
-            p.setProperty(RuntimeConstants.RUNTIME_LOG_LOGSYSTEM_CLASS, "org.apache.velocity.runtime.log.SimpleLog4JLogSystem");
-            p.setProperty("runtime.log.logsystem.log4j.category", CATEGORY_NAME);
-
+            p.setProperty("resource.loaders", "class");
+            p.setProperty("resource.loader.class.description", "Resource Loader");
+            p.setProperty("resource.loader.class.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader ");
+            // Settings to maximize backward compatibility of Velocity v2.3 with previously used v1.7
+            // See https://velocity.apache.org/engine/2.3/upgrading.html
+            p.setProperty("introspector.conversion_handler.class", "none");
+            p.setProperty("parser.space_gobbling", "bc");
+            p.setProperty("directive.if.empty_check", "false");
+            p.setProperty("parser.allow_hyphen_in_identifiers", "true");
+            p.setProperty("velocimacro.enable_bc_mode", "true");
+            p.setProperty("event_handler.invalid_references.quiet", "true");
+            p.setProperty("event_handler.invalid_references.null", "true");
+            p.setProperty("event_handler.invalid_references.tested", "true");
             ve.init(p);
         } catch (Exception ex) {
             ex.printStackTrace();

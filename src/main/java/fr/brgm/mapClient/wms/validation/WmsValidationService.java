@@ -8,7 +8,7 @@ import fr.brgm.mapClient.wms.validation.dto.CustomPredicateDTO;
 import fr.brgm.mapClient.wms.validation.dto.WmsStatusDTO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.geotools.ows.ServiceException;
 import org.geotools.ows.wms.Layer;
 import org.geotools.ows.wms.WMSCapabilities;
