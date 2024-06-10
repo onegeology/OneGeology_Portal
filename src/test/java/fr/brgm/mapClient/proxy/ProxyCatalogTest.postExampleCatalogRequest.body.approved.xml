@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><csw:GetRecordsResponse xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd">
+    
+  <csw:SearchStatus/>
+    
+  <csw:SearchResults numberOfRecordsMatched="1" numberOfRecordsReturned="1" elementSet="full" nextRecord="0">
+        
+    <csw:Record xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ows="http://www.opengis.net/ows" xmlns:geonet="http://www.fao.org/geonetwork" xmlns:dct="http://purl.org/dc/terms/">
+            
+      <dc:identifier>b94347eedee9f67d8b0292fcef6a84b8b7911a68</dc:identifier>
+            
+      <dc:date>2018-06-27T09:05:07</dc:date>
+            
+      <dc:title>GBR BGS 1:625k Bedrock INSPIRE Lithology</dc:title>
+            
+      <dc:type>dataset</dc:type>
+            
+      <dc:subject>OneGeology</dc:subject>
+            
+      <dc:subject>bedrock</dc:subject>
+            
+      <dc:subject>lithology</dc:subject>
+            
+      <dc:subject>thematic@Harmonised geology</dc:subject>
+            
+      <dc:subject>thematic@Bedrock</dc:subject>
+            
+      <dc:subject>thematic@Lithology</dc:subject>
+            
+      <dc:subject>continent@Europe</dc:subject>
+            
+      <dc:subject>geographicarea@United Kingdom</dc:subject>
+            
+      <dc:subject>serviceprovider@British Geological Survey</dc:subject>
+            
+      <dc:subject>dataprovider@British Geological Survey</dc:subject>
+            
+      <dc:subject>DS_TOPIC@geoscientificinformation</dc:subject>
+            
+      <dc:subject>DS_DATE@2015-10-19</dc:subject>
+            
+      <dc:subject>United Kingdom</dc:subject>
+            
+      <dc:subject>Geosciml_portrayal_age_or_litho_queryable</dc:subject>
+            
+      <dc:subject>subcontinent@Northern Europe</dc:subject>
+            
+      <dc:subject>GeoSciML4_wfs_age_or_litho_queryable</dc:subject>
+            
+      <dc:subject>geoscientificInformation</dc:subject>
+            
+      <dc:format/>
+            
+      <dct:abstract>GBR BGS 1:625k scale Bedrock Lithology using INSPIRE Lithology classification.</dct:abstract>
+            
+      <dc:description>GBR BGS 1:625k scale Bedrock Lithology using INSPIRE Lithology classification.</dc:description>
+            
+      <dc:language/>
+            
+      <dc:source/>
+            
+      <dc:format/>
+            
+      <ows:BoundingBox crs="urn:ogc:def:crs:::EPSG:27700">
+                
+        <ows:LowerCorner>2.699897844550573 49.813684466825414</ows:LowerCorner>
+                
+        <ows:UpperCorner>-9.326658440741532 60.86394987268772</ows:UpperCorner>
+              
+      </ows:BoundingBox>
+            
+      <dc:URI protocol="OGC:WMS-1.3.0-http-get-map" name="gsmlp:GBR_BGS_625k_BLT_INSP" description="GBR BGS 1:625k Bedrock INSPIRE Lithology">http://ogc.bgs.ac.uk:80/digmap625k_gsml_insp_gs/ows?SERVICE=WMS&amp;</dc:URI>
+            
+      <dc:URI protocol="text/html" name="gsmlp:GBR_BGS_625k_BLT_INSP (MetadataURL)" description="">http://www.bgs.ac.uk/discoverymetadata/13480426.html</dc:URI>
+            
+      <dc:URI protocol="text/html" name="gsmlp:GBR_BGS_625k_BLT_INSP (MetadataURL)" description="">http://www.bgs.ac.uk/discoverymetadata/13480426.html</dc:URI>
+            
+      <dc:URI protocol="image/png" name="Lithology (Representative) (LegendURL)" description="">http://ogc.bgs.ac.uk:80/digmap625k_gsml_insp_gs/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=gsmlp%3AGBR_BGS_625k_BLT_INSP</dc:URI>
+            
+      <dc:URI protocol="image/png" name="thumbnail">http://onegeology-geonetwork.brgm.fr/geonetwork3/srv/api/records/b94347eedee9f67d8b0292fcef6a84b8b7911a68/attachments/b94347eedee9f67d8b0292fcef6a84b8b7911a68_s.png</dc:URI>
+            
+      <dc:URI protocol="image/png" name="large_thumbnail">http://onegeology-geonetwork.brgm.fr/geonetwork3/srv/api/records/b94347eedee9f67d8b0292fcef6a84b8b7911a68/attachments/b94347eedee9f67d8b0292fcef6a84b8b7911a68.png</dc:URI>
+          
+    </csw:Record>
+      
+  </csw:SearchResults>
+  
+</csw:GetRecordsResponse>

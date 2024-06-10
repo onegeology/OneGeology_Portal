@@ -46,7 +46,7 @@ public class ProxyRedirect2 extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         context_ = config.getServletContext();
-        log.info("ProxyRedirect: context initialized to:" + context_.getServletContextName());
+        log.info("ProxyRedirect2: context initialized to:" + context_.getServletContextName());
     }
 
     /**
