@@ -9,10 +9,10 @@
     <description>Map Client OL3</description>
 
     <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.18</version>
-	</parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.13</version>
+    </parent>
 
     <!-- Repository -->
     <repositories>
@@ -95,13 +95,21 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-properties-migrator</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5-fluent</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -143,11 +151,11 @@
                 <artifactId>minify-maven-plugin</artifactId>
                 <version>1.7.6</version>
                 <dependencies>
-                  <dependency>
-                    <groupId>org.codehaus.plexus</groupId>
-                    <artifactId>plexus-utils</artifactId>
-                    <version>3.5.1</version>
-                  </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.plexus</groupId>
+                        <artifactId>plexus-utils</artifactId>
+                        <version>3.5.1</version>
+                    </dependency>
                 </dependencies>
                 <executions>
                     <execution>

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -80,7 +80,7 @@ public class SldController {
 
         SldFileDAO sldFileDAO = this.sldService.getSld(sldAttributesDTO);
 
-        String grp = httpServletRequest.getRealPath("/");
+        String grp = httpServletRequest.getServletContext().getRealPath("/");
 
         String fullPathToFile = String.format("%s%sslds%s%s", grp, File.separator, File.separator, fileName);
         log.debug("outSld= " + fullPathToFile);

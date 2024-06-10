@@ -11,7 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 /**
  * Rest controller to handle services from Zabbix using a h2 in-memory database combined with a scheduler to update the application

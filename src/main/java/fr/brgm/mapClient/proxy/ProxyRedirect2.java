@@ -10,13 +10,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,16 +50,16 @@ public class ProxyRedirect2 extends HttpServlet {
     }
 
     /**
-     * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest,
-     * javax.servlet.http.HttpServletResponse)
+     * @see jakarta.servlet.http.HttpServlet#doGet(jakarta.servlet.http.HttpServletRequest,
+     * jakarta.servlet.http.HttpServletResponse)
      */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doForward(req, resp);
     }
 
     /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest,
-     * javax.servlet.http.HttpServletResponse)
+     * @see jakarta.servlet.http.HttpServlet#doPost(jakarta.servlet.http.HttpServletRequest,
+     * jakarta.servlet.http.HttpServletResponse)
      */
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doForwardFromPost(req, resp);
@@ -68,7 +68,7 @@ public class ProxyRedirect2 extends HttpServlet {
     protected void doForward(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = getParameter("url", req.getQueryString());
 	log.debug("Received url: " + url);
-        url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
+        url = URLDecoder.decode(url, StandardCharsets.UTF_8); // TODO: check whether this gives NullPointerException or just returns null if url is null
 	log.debug("Decoded url: " + url);
         if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
             url = URLDecoder.decode(url, "UTF-8");
@@ -104,7 +104,7 @@ public class ProxyRedirect2 extends HttpServlet {
             url = req.getHeader("serverUrl");
         }
         log.debug("url : " + url);
-        url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
+        url = URLDecoder.decode(url, StandardCharsets.UTF_8);// TODO: check whether this gives NullPointerException or just returns null if url is null
         if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
 
             url = URLDecoder.decode(url, "UTF-8");
