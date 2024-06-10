@@ -67,26 +67,26 @@ mapviewer.csMap = {
     $('<div class="ol-mouse-position">X:&nbsp;0&nbsp;Y:&nbsp;0</div>')
       .appendTo('.mouse-position-control');
 
-    $('<div class="ol-zoom ol-unselectable ol-control">\
-            <button class="ol-zoom-in" type="button" title="' + i18next.t('controls.zoomInTitle') + '">\
-        <i class="fa fa-plus"></i>\
-      </button>\
-            <button class="ol-zoom-out" type="button" title="' + i18next.t('controls.zoomOutTitle') + '">\
-        <i class="fa fa-minus"></i>\
-      </button>\
-    </div>').appendTo('.oneg-right-inner-controls');
+    $('<div class="ol-zoom ol-unselectable ol-control">' +
+      '  <button class="ol-zoom-in" type="button" title="' + i18next.t('controls.zoomInTitle') + '">' +
+      '    <i class="fa fa-plus"></i>' +
+      '  </button>' +
+      '  <button class="ol-zoom-out" type="button" title="' + i18next.t('controls.zoomOutTitle') + '">' +
+      '    <i class="fa fa-minus"></i>' +
+      '  </button>' +
+      '</div>').appendTo('.oneg-right-inner-controls');
 
-    $('<div class="ol-zoom-extent ol-unselectable ol-control">\
-            <button type="button" title="' + i18next.t('controls.zoomToExtentTitle') + '">\
-        <i class="fa fa-home"></i>\
-      </button>\
-    </div>').appendTo('.oneg-right-inner-controls');
+    $('<div class="ol-zoom-extent ol-unselectable ol-control">' +
+      '  <button type="button" title="' + i18next.t('controls.zoomToExtentTitle') + '">' +
+      '    <i class="fa fa-home"></i>' +
+      '  </button>' +
+      '</div>').appendTo('.oneg-right-inner-controls');
 
-    $('<div class="ol-full-screen ol-unselectable ol-control ">\
-            <button class="ol-full-screen-false" type="button" title="' + i18next.t('controls.fullScreenTitle') + '">\
-        <i class="fa fa-expand-arrows-alt"></i>\
-      </button>\
-    </div>').appendTo('.oneg-right-inner-controls');
+    $('<div class="ol-full-screen ol-unselectable ol-control ">' +
+      '  <button class="ol-full-screen-false" type="button" title="' + i18next.t('controls.fullScreenTitle') + '">' +
+      '    <i class="fa fa-expand-arrows-alt"></i>' +
+      '  </button>' +
+      '</div>').appendTo('.oneg-right-inner-controls');
 
     mapviewer.csMap.addControlsListeners();
 
