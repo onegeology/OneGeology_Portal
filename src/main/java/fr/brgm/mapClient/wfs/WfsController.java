@@ -1,10 +1,10 @@
 package fr.brgm.mapClient.wfs;
 
 import fr.brgm.mapClient.wfs.exception.WfsException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/wfs")
-@Api(value = "/wfs", description = "API REST pour accéder aux scavengers")
+@Tag(name = "/wfs", description = "API REST pour accéder aux scavengers")
 public class WfsController {
 
     private final WfsService wfsService;
@@ -36,10 +36,10 @@ public class WfsController {
      * @throws WfsException Il est impossible de communiquer avec le générateur de WFS
      */
     @PostMapping(value = "/")
-    @ApiOperation(value = "Appel de la génération du WFS avec les paramètres en entrée", httpMethod = "POST", response = String.class)
+    @Operation(description = "Appel de la génération du WFS avec les paramètres en entrée")
     @ApiResponses({
-            @ApiResponse(code = 200, response = String.class, message = "Le WFS sous forme de String"),
-            @ApiResponse(code = 500, response = WfsException.class, message = "Il est impossible de communiquer avec le générateur de WFS")
+            @ApiResponse(responseCode = "200", description = "Le WFS sous forme de String"),
+            @ApiResponse(responseCode = "500", description = "Il est impossible de communiquer avec le générateur de WFS")
     })
 
     public String getWFS(@RequestParam String request,

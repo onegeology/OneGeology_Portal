@@ -1,7 +1,10 @@
 package fr.brgm.mapClient.wms.validation;
 
 import fr.brgm.mapClient.wms.validation.dto.WmsStatusDTO;
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/wms/validation")
-@Api(value = "/api/wms/validation", description = "Rest controller for the validation of external WMS")
+@Tag(name = "/api/wms/validation", description = "Rest controller for the validation of external WMS")
 public class WmsValidationController {
 
     /**
@@ -36,11 +39,10 @@ public class WmsValidationController {
      * @return The status of the validation
      */
     @PostMapping("/")
-    @ApiOperation(value = "Validate an external WMS from its URL", httpMethod = "POST", response = WmsStatusDTO.class)
-    @ApiResponses({
-            @ApiResponse(code = 200, response = WmsStatusDTO.class, message = "The status of the validation")
+    @Operation(summary = "Validate an external WMS from its URL", responses = {
+            @ApiResponse(responseCode = "200", description = "The status of the validation")
     })
-    public WmsStatusDTO monitoring(@ApiParam(value = "URL of the WMS", required = true) @RequestBody @NotEmpty String url) {
+    public WmsStatusDTO monitoring(@Parameter(name = "URL of the WMS", required = true) @RequestBody @NotEmpty String url) {
         try {
             url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
         } catch(UnsupportedEncodingException e) {

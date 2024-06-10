@@ -8,10 +8,10 @@ import fr.brgm.mapClient.sld.dto.ResultSldDTO;
 import fr.brgm.mapClient.sld.dto.SldAttributesDTO;
 import fr.brgm.mapClient.sld.exception.SldException;
 import fr.brgm.mapClient.utils.file.FileWriter;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +33,7 @@ import java.util.List;
 @CommonsLog
 @AllArgsConstructor
 @RequestMapping("/sld")
-@Api(value = "/sld", description = "API REST pour accéder au générateur de SLD")
+@Tag(name = "/sld", description = "API REST pour accéder au générateur de SLD")
 public class SldController {
 
     /**
@@ -55,9 +55,9 @@ public class SldController {
      * @throws IOException  Ecriture fichier impossible
      */
     @PostMapping(value = "/")
-    @ApiOperation(value = "", httpMethod = "POST", response = String.class)
+    @Operation(description = "")
     @ApiResponses({
-            @ApiResponse(code = 200, response = String.class, message = "")
+            @ApiResponse(responseCode = "200")
     })
     public ResultSldDTO getWFS(@RequestParam String layerid,
                                @RequestParam String color,

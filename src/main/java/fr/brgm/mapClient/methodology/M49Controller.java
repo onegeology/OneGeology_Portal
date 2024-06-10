@@ -1,9 +1,10 @@
 package fr.brgm.mapClient.methodology;
 
 import fr.brgm.mapClient.methodology.dto.M49DTO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/methodology/m49")
-@Api(value = "/methodology/m49", description = "Controller used to get M49 methodology")
+@Tag(name = "/methodology/m49", description = "Controller used to get M49 methodology")
 public class M49Controller {
 
     /**
@@ -32,8 +33,10 @@ public class M49Controller {
      * @return all M49 codes and names
      */
     @GetMapping("/")
-    @ApiOperation(value = "Get all M49 codes and names", httpMethod = "GET", response = M49DTO.class, responseContainer = "List")
-    @ApiResponse(code = 200, response = M49DTO.class, responseContainer = "List", message = "Responce class containing all M49 codes and names")
+    @Operation(summary = "Get all M49 codes and names")
+    @ApiResponses( value = {
+        @ApiResponse(responseCode = "200", description = "Response class containing all M49 codes and names")
+    })
     public List<M49DTO> readM49MethodologyAsJson() throws IOException {
         return this.m49Service.readM49MethodologyAsJson();
     }

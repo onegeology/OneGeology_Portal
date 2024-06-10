@@ -24,7 +24,6 @@
 
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-        <springfox.version>3.0.0</springfox.version>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <dependency.mapstruct.version>1.5.5.Final</dependency.mapstruct.version>
     </properties>
@@ -123,14 +122,9 @@
             <version>${dependency.mapstruct.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${springfox.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
