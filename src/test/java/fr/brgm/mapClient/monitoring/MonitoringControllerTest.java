@@ -7,9 +7,10 @@ import fr.brgm.mapClient.monitoring.dto.request.ServiceRequestDTO;
 import fr.brgm.mapClient.monitoring.dto.request.TemplateRequestDTO;
 import fr.brgm.mapClient.monitoring.dto.response.ServiceResponseDTO;
 import fr.brgm.mapClient.monitoring.dto.response.TemplateResponseDTO;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -18,20 +19,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.Collections;
-import java.util.List;
-
 /**
  * TestSld class for {@link MonitoringController}
  */
-@RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class MonitoringControllerTest extends Mockito {
@@ -89,7 +85,7 @@ public class MonitoringControllerTest extends Mockito {
     /**
      * Set up
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         this.mockMvc = MockMvcBuilders.standaloneSetup(this.monitoringController).build();

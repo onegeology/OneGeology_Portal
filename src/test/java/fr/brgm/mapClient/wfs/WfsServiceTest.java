@@ -2,22 +2,19 @@ package fr.brgm.mapClient.wfs;
 
 import fr.brgm.mapClient.wfs.dto.WfsAttributesDAO;
 import fr.brgm.mapClient.wfs.exception.WfsException;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * Classe de test de {@link WfsService}
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class WfsServiceTest extends Mockito {
 
@@ -30,7 +27,7 @@ public class WfsServiceTest extends Mockito {
     /**
      * Set up
      */
-    @Before
+    @BeforeEach
     public void setUp() throws WfsException {
         MockitoAnnotations.initMocks(this);
 
@@ -55,8 +52,8 @@ public class WfsServiceTest extends Mockito {
         String gsmlVersion = "4";
         String wfs = this.wfsService.getWfs(request, bbox, lang, srs, url, typename, version, filter, gsmlVersion);
 
-        Assert.assertNotNull(wfs);
-        Assert.assertEquals("wfs", wfs);
+        Assertions.assertNotNull(wfs);
+        Assertions.assertEquals("wfs", wfs);
     }
 
 }

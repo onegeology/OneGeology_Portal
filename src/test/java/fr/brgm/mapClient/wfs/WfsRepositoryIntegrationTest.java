@@ -2,18 +2,15 @@ package fr.brgm.mapClient.wfs;
 
 import fr.brgm.mapClient.wfs.dto.WfsAttributesDAO;
 import fr.brgm.mapClient.wfs.exception.WfsException;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Classe de teste de {@link WfsRepository}
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class WfsRepositoryIntegrationTest {
 
@@ -24,7 +21,7 @@ public class WfsRepositoryIntegrationTest {
      * Test de getWfs
      */
     @Test
-    @Ignore("Appel le WS de génération de WFS")
+    @Disabled("Appel le WS de génération de WFS")
     public void whenGetWfsShouldReturnRightWFS() throws WfsException {
         WfsAttributesDAO wfsAttributesDAO = new WfsAttributesDAO();
         wfsAttributesDAO.setRequest("stats");
@@ -38,10 +35,10 @@ public class WfsRepositoryIntegrationTest {
         wfsAttributesDAO.setGsmlVersion("4");
 
         String wfs = this.wfsRepository.getWfs(wfsAttributesDAO);
-        Assert.assertNotNull(wfs);
+        Assertions.assertNotNull(wfs);
 
         String result = "{\"OlderNamedAge\":[{\"name\":\"http://resource.geosciml.org/classifier/ics/ischart/Pleistocene\",\"count\":\"1\",\"pcarea\":\"100.0 %\"}],\"YoungerNamedAge\":[{\"name\":\"http://resource.geosciml.org/classifier/ics/ischart/Pleistocene\",\"count\":\"1\",\"pcarea\":\"100.0 %\"}],\"CompositionPart\":[{ \"lithology\":\"clastic sedimentary rock\",\"count\":\"1\",\"pcarea\":\"100.0 %\"}]}";
-        Assert.assertEquals(result, wfs);
+        Assertions.assertEquals(result, wfs);
     }
 
 }

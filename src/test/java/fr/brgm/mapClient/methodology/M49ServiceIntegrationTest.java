@@ -1,20 +1,17 @@
 package fr.brgm.mapClient.methodology;
 
 import fr.brgm.mapClient.methodology.dto.M49DTO;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class for {@link M49Service}
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class M49ServiceIntegrationTest {
 
@@ -30,13 +27,13 @@ public class M49ServiceIntegrationTest {
     @Test
     public void whenReadM49MethodologyAsJsonShouldMapCorrectlyEachEntry() throws IOException {
         List<M49DTO> m49DTOS = this.m49Service.readM49MethodologyAsJson();
-        Assert.assertNotNull(m49DTOS);
+        assertThat(m49DTOS).isNotNull();
 
         M49DTO m49France = m49DTOS.stream()
                 .filter(m49DTO -> "France".equals(m49DTO.getCountryOrArea()))
                 .findFirst()
                 .orElse(null);
-        Assert.assertNotNull(m49France);
+        assertThat(m49France).isNotNull();
     }
 
 }

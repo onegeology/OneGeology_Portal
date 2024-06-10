@@ -8,27 +8,23 @@ import fr.brgm.mapClient.monitoring.dto.request.TemplateRequestDTO;
 import fr.brgm.mapClient.monitoring.dto.response.ServiceResponseDTO;
 import fr.brgm.mapClient.monitoring.dto.response.TemplateResponseDTO;
 import fr.brgm.mapClient.monitoring.zabbixapiclient.ZabbixService;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 /**
  * TestSld class for {@link MonitoringService}
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class MonitoringServiceTest extends Mockito {
 
@@ -74,7 +70,7 @@ public class MonitoringServiceTest extends Mockito {
     /**
      * Set up
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
@@ -114,15 +110,15 @@ public class MonitoringServiceTest extends Mockito {
         templateRequestDTO.setServices(Collections.singletonList(serviceRequestDTO));
 
         TemplateResponseDTO templateResponseDTO = this.monitoringService.monitoring(templateRequestDTO);
-        Assert.assertNotNull(templateResponseDTO);
-        Assert.assertEquals(Long.valueOf(1), templateResponseDTO.getTemplateId());
-        Assert.assertEquals(Long.valueOf(2), templateResponseDTO.getApplicationId());
-        Assert.assertEquals(Long.valueOf(3), templateResponseDTO.getServiceClusterId());
+        Assertions.assertNotNull(templateResponseDTO);
+        Assertions.assertEquals(Long.valueOf(1), templateResponseDTO.getTemplateId());
+        Assertions.assertEquals(Long.valueOf(2), templateResponseDTO.getApplicationId());
+        Assertions.assertEquals(Long.valueOf(3), templateResponseDTO.getServiceClusterId());
 
         ServiceResponseDTO serviceResponseDTO = templateResponseDTO.getServices().get(0);
-        Assert.assertEquals(Long.valueOf(3), serviceResponseDTO.getServiceId());
-        Assert.assertEquals(Long.valueOf(4), serviceResponseDTO.getScenarioId());
-        Assert.assertEquals(Long.valueOf(6), serviceResponseDTO.getTriggerId());
+        Assertions.assertEquals(Long.valueOf(3), serviceResponseDTO.getServiceId());
+        Assertions.assertEquals(Long.valueOf(4), serviceResponseDTO.getScenarioId());
+        Assertions.assertEquals(Long.valueOf(6), serviceResponseDTO.getTriggerId());
     }
 
     /**
@@ -132,18 +128,18 @@ public class MonitoringServiceTest extends Mockito {
     @Test
     public void whenGetAllSLAsShouldreturnAllServiceswithTheirSLAs() {
         List<fr.brgm.mapClient.monitoring.dto.ServiceDTO> serviceDTOS = this.monitoringService.getAllSLAs();
-        Assert.assertNotNull(serviceDTOS);
-        Assert.assertEquals(2, serviceDTOS.size());
+        Assertions.assertNotNull(serviceDTOS);
+        Assertions.assertEquals(2, serviceDTOS.size());
 
         fr.brgm.mapClient.monitoring.dto.ServiceDTO first = serviceDTOS.stream().filter(s -> "Service 1".equals(s.getName())).findFirst().orElse(null);
-        Assert.assertNotNull(first);
-        Assert.assertEquals("Service 1", first.getName());
-        Assert.assertEquals((Float) 95.2f, first.getSla());
+        Assertions.assertNotNull(first);
+        Assertions.assertEquals("Service 1", first.getName());
+        Assertions.assertEquals((Float) 95.2f, first.getSla());
 
         fr.brgm.mapClient.monitoring.dto.ServiceDTO second = serviceDTOS.stream().filter(s -> "Service 2".equals(s.getName())).findFirst().orElse(null);
-        Assert.assertNotNull(second);
-        Assert.assertEquals("Service 2", second.getName());
-        Assert.assertEquals((Float) 95.22f, second.getSla());
+        Assertions.assertNotNull(second);
+        Assertions.assertEquals("Service 2", second.getName());
+        Assertions.assertEquals((Float) 95.22f, second.getSla());
     }
 
 }
